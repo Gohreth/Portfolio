@@ -1,0 +1,9 @@
+canvas {
+  background-color: transparent;
+  position: absolute;
+  height: 300px;
+  width: 300px;
+  right: 0;
+  top: calc(100vh - 300px);
+  image-rendering: pixelated;
+}

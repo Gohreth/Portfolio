@@ -1,0 +1,59 @@
+.button--animated {
+  /*  animation: tweek 4s ease-in-out infinite 2s; */
+  background-color: white;
+  position: relative;
+  border: 3px solid black;
+}
+
+.button--animated::after {
+  content: "Go";
+  position: absolute;
+  color: transparent;
+  display: grid;
+  align-content: center;
+  inset: -2px;
+  border-radius: 2rem;
+  background: linear-gradient(black, black);
+  background-size: 0;
+  background-repeat: no-repeat;
+  transition: color 0.75s ease-in-out, background-size 0.75s ease-in-out;
+}
+
+.button--animated:hover {
+  animation-play-state: paused;
+}
+
+.button--animated:hover::after {
+  color: white;
+  border: 3px solid white;
+  border-radius: 2rem;
+  background-size: 100%;
+  transition: color 1.25s ease-in-out, background-size 1.25s ease-in-out;
+}
+
+@keyframes tweek {
+  30%,
+  70% {
+    transform: rotate(0);
+  }
+
+  46%,
+  50% {
+    transform: rotate(5deg);
+  }
+
+  49%,
+  54% {
+    transform: rotate(-5deg);
+  }
+}
+
+button {
+  background-color: white;
+  color: black;
+  padding: 1rem;
+  border: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 2rem;
+}

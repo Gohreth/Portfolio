@@ -1,0 +1,29 @@
+.navbar {
+  --inline-padding: 5rem;
+  padding: 1rem var(--inline-padding);
+  background-color: transparent;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 100vw;
+  z-index: 2;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+.sections {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 2rem;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
