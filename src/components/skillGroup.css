@@ -1,0 +1,21 @@
+.container__skills {
+  display: flex;
+  flex: 0 0 25vw;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 2rem;
+}
+
+.skills__title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  justify-self: flex-start;
+}
+
+.skills__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin: auto 0;
+}

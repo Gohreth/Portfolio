@@ -1,10 +1,62 @@
 .projects {
   height: 100vh;
   width: 100vw;
-  background-color: blue;
-  color: white;
+  background-color: white;
+  color: black;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   scroll-snap-align: start;
+  perspective: 1000px;
+}
+
+.container3d {
+  transform-style: preserve-3d;
+}
+
+.flippable-card {
+  height: 200px;
+  width: 200px;
+  background-color: gray;
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.flippable-card:nth-of-type(1) {
+  /* transform: rotateY(-180deg) translateZ(-1000px); */
+  transform: rotateY(0deg) translateX(-621px);
+  transition: all ease-in-out 6s;
+}
+
+.flippable-card:nth-of-type(2) {
+  transform: rotateY(360deg) translateX(0px);
+  transition: all ease-in-out 6s;
+}
+
+@keyframes foregroundRightFlip {
+}
+@keyframes foregroundLeftFlip {
+}
+@keyframes backgroundRightFlip {
+}
+@keyframes backgroundLeftFlip {
+}
+
+.card__frontface,
+.card__backface {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  overflow: hidden;
+}
+
+.card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card__backface {
+  transform: rotateY(180deg);
 }

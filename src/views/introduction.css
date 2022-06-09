@@ -18,13 +18,16 @@
 }
 
 .skills {
+  --inline-padding: 5rem;
   position: relative;
   flex: 0 0 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: green;
+  background-color: white;
+  color: black;
+  padding: 1rem var(--inline-padding);
 }
 
 .information {

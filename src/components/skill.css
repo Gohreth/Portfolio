@@ -1,0 +1,41 @@
+.skill {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 0.25rem;
+  width: 64px;
+  height: 64px;
+}
+
+.skill__image {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.skill__name {
+  font-size: 0.75rem;
+  position: relative;
+  cursor: pointer;
+}
+
+.skill__name::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0%;
+  height: 2px;
+  background-color: black;
+  transition: width 1s ease-in-out;
+}
+
+.active > .skill__name::after {
+  width: 100%;
+  transition: width 1s ease-in-out;
+}
+
+object {
+  pointer-events: all;
+}

@@ -1,0 +1,66 @@
+.dialog {
+  background-color: burlywood;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  --offset: -80px;
+  --popDuration: 2s;
+}
+
+.bubble-one {
+  border-radius: 50%;
+  border: 4px solid rgba(0, 0, 0, 0.75);
+  width: 25px;
+  height: 25px;
+  background-color: white;
+  position: absolute;
+  top: calc(0px + var(--offset));
+  transform: scale(0);
+  animation: popAppear var(--popDuration) ease-in-out forwards;
+}
+
+.bubble-two {
+  border-radius: 50%;
+  border: 4px solid rgba(0, 0, 0, 0.75);
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: calc(13px + var(--offset));
+  background-color: white;
+  transform: scale(0);
+  animation: popAppear var(--popDuration) ease-in-out forwards 0.25s;
+}
+
+.bubble-three {
+  border-radius: 50px;
+  border: 3px solid rgba(0, 0, 0, 0.75);
+  padding: 1rem;
+  position: absolute;
+  top: calc(40px + var(--offset));
+  background-color: white;
+  max-height: 300px;
+  overflow-y: scroll;
+  transform: scale(0);
+  animation: popAppear var(--popDuration) ease-in-out forwards 0.5s;
+}
+
+.bubble-three p {
+  text-align: justify;
+  overflow-y: auto;
+}
+
+@keyframes popAppear {
+  from {
+    transform: scale(0);
+  }
+
+  50% {
+    transform: scale(1.25);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}

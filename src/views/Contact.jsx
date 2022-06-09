@@ -3,8 +3,7 @@ import "./contact.css";
 const Contact = () => {
   return (
     <div className="contact" id="contact">
-      <img src="/images/contact.png" />
-      kljadslkasdjklda
+      <img src="/images/avatar/contact.png" />
     </div>
   );
 };

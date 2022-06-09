@@ -56,4 +56,5 @@ button {
   text-transform: uppercase;
   font-weight: bold;
   border-radius: 2rem;
+  cursor: pointer;
 }
