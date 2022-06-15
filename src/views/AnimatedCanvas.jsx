@@ -103,7 +103,7 @@ const AnimatedCanvas = ({ animationTrigger, onAnimationEnd }) => {
   }, []);
 
   useEffect(() => {
-    console.log(ctx);
+    //console.log(ctx);
     const animation = async () => {
       await standUpAnimation(
         ctx,
