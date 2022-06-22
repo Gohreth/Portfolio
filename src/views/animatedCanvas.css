@@ -1,9 +1,30 @@
-canvas {
+.about canvas {
   background-color: transparent;
   position: absolute;
   height: 300px;
   width: 300px;
   right: 0;
   top: calc(100vh - 300px);
+  image-rendering: pixelated;
+}
+
+.flippable-card:first-of-type canvas {
+  background-color: transparent;
+  position: absolute;
+  height: 300px;
+  width: 300px;
+  left: 0;
+  bottom: -150px;
+  image-rendering: pixelated;
+}
+
+.flippable-card:last-of-type canvas {
+  background-color: transparent;
+  position: absolute;
+  height: 300px;
+  width: 300px;
+  left: 0;
+  bottom: -150px;
+  transform: rotateY(180deg);
   image-rendering: pixelated;
 }

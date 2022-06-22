@@ -1,8 +1,8 @@
 .projects {
   height: 100vh;
   width: 100vw;
-  background-color: white;
-  color: black;
+  background-color: var(--primary-clr);
+  color: var(--text-clr);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,6 +20,8 @@
   transform-style: preserve-3d;
   transform: rotateY(0deg) translateX(0px);
   transition: transform ease-in-out 2s;
+  cursor: url("data:image/svg+xml;utf8, <svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' style='font-size: 24px'><text y='20'>🤲</text></svg>"),
+    auto;
 }
 
 .card__frontface,
@@ -40,7 +42,7 @@
 }
 
 .card__description--left {
-  background-color: black;
+  background-color: var(--secondary-clr);
   position: absolute;
   width: 130%;
   height: 75%;
@@ -50,7 +52,7 @@
 }
 
 .card__description--right {
-  background-color: black;
+  background-color: var(--secondary-clr);
   position: absolute;
   width: 130%;
   height: 75%;
@@ -73,7 +75,7 @@
 
 .description__id--left {
   position: absolute;
-  color: white;
+  color: var(--primary-clr);
   font-size: 4rem;
   font-weight: 900;
   bottom: 15%;
@@ -82,7 +84,7 @@
 
 .description__name--left {
   position: absolute;
-  color: white;
+  color: var(--primary-clr);
   font-size: 1.5rem;
   font-weight: 700;
   width: min-content;
@@ -105,7 +107,7 @@
 
 .description__id--right {
   position: absolute;
-  color: white;
+  color: var(--primary-clr);
   font-size: 4rem;
   font-weight: 900;
   bottom: 15%;
@@ -114,7 +116,7 @@
 
 .description__name--right {
   position: absolute;
-  color: white;
+  color: var(--primary-clr);
   font-size: 1.5rem;
   font-weight: 700;
   width: min-content;
@@ -128,8 +130,11 @@
   height: 100%;
   width: 100%;
   padding: 2rem;
-  background-color: black;
-  color: white;
+  background-color: var(--secondary-clr);
+  color: var(--primary-clr);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: justify;
   overflow-y: auto;
 }

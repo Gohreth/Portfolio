@@ -1,8 +1,8 @@
 .button--animated {
   /*  animation: tweek 4s ease-in-out infinite 2s; */
-  background-color: white;
+  background-color: var(--secondary-clr);
   position: relative;
-  border: 3px solid black;
+  border: 3px solid var(--primary-clr);
 }
 
 .button--animated::after {
@@ -13,7 +13,7 @@
   align-content: center;
   inset: -2px;
   border-radius: 2rem;
-  background: linear-gradient(black, black);
+  background: linear-gradient(var(--primary-clr), var(--primary-clr));
   background-size: 0;
   background-repeat: no-repeat;
   transition: color 0.75s ease-in-out, background-size 0.75s ease-in-out;
@@ -24,8 +24,8 @@
 }
 
 .button--animated:hover::after {
-  color: white;
-  border: 3px solid white;
+  color: var(--secondary-clr);
+  border: 3px solid var(--secondary-clr);
   border-radius: 2rem;
   background-size: 100%;
   transition: color 1.25s ease-in-out, background-size 1.25s ease-in-out;
@@ -49,8 +49,8 @@
 }
 
 button {
-  background-color: white;
-  color: black;
+  background-color: var(--secondary-clr);
+  color: var(--primary-clr);
   padding: 1rem;
   border: none;
   text-transform: uppercase;

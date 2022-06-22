@@ -1,10 +1,40 @@
 .contact {
   height: 100vh;
   width: 100vw;
-  background-color: black;
-  color: white;
+  background-color: var(--primary-clr);
+  color: var(--text-clr);
   display: flex;
   align-items: center;
   justify-content: center;
   scroll-snap-align: start;
+}
+
+.contact form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contact label {
+  display: block;
+  font-size: 1.25rem;
+  margin-bottom: 0.25rem;
+}
+
+textarea {
+  resize: none;
+}
+
+.contact input,
+textarea {
+  width: clamp(15rem, 25vw, 25rem);
+  padding: 0.25rem 0.5rem;
+  border: none;
+  border-radius: 5px;
+}
+
+.contact input:focus-visible,
+textarea:focus-visible {
+  outline: var(--primary-clr) auto 1px;
 }

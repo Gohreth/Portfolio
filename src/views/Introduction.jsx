@@ -1,8 +1,10 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
+import { UIContext } from "../App";
 import AnimatedButton from "../components/AnimatedButton";
 import DialogBubble from "../components/DialogBubble";
 import SkillGroup from "../components/SkillGroup";
 import Typewritter from "../components/Typewritter";
+import { checkWithDelay } from "../helpers/scrollCheck";
 import AnimatedCanvas from "./AnimatedCanvas";
 import "./introduction.css";
 
@@ -139,8 +141,28 @@ const Introduction = () => {
       await new Promise((r) => setTimeout(r, 0));
     }
   };
+
+  const { updateSection } = useContext(UIContext);
+
+  useEffect(() => {
+    scrollableXRef.current.addEventListener("scroll", (event) =>
+      checkWithDelay(event, "horizontal", 100, updateSection)
+    );
+
+    return () => {
+      scrollableXRef.current.removeEventListener("scroll", (event) =>
+        checkWithDelay(event, "horizontal", 100, updateSection)
+      );
+    };
+  }, []);
+
+  const { settings } = useContext(UIContext);
   return (
-    <div ref={scrollableXRef} className="introduction" id="about">
+    <div
+      ref={scrollableXRef}
+      className={`introduction ${settings.theme}-theme`}
+      id="about"
+    >
       <div className="about">
         <div className="information">
           <div className="information__avatar">

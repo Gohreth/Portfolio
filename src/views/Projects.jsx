@@ -1,4 +1,6 @@
-import { useEffect, useReducer, useRef, useState } from "react";
+import { useEffect, useReducer, useRef } from "react";
+import AnimatedCanvas from "./AnimatedCanvas";
+
 import "./projects.css";
 
 const INITIAL_STATE = {
@@ -91,12 +93,7 @@ const Projects = () => {
 
   useEffect(() => {
     //Values are bugged when reloading page (changes to 200), payload hardcoded because of that
-    console.log(
-      rightCardFlipRef.current.getBoundingClientRect().left,
-      leftCardFlipRef.current.getBoundingClientRect().left,
-      rightCardFlipRef.current.getBoundingClientRect().left -
-        leftCardFlipRef.current.getBoundingClientRect().left
-    );
+    console.log(rightCardFlipRef.current.offsetLeft);
 
     dispatch({
       type: "distance",
@@ -112,7 +109,11 @@ const Projects = () => {
           style={{
             transform: `rotateY(${state.leftRotation}deg) translateX(${state.leftPosition}px)`,
           }}
-          onClick={() => dispatch({ type: "transformLeft" })}
+          onClick={() =>
+            state.isTransformed
+              ? dispatch({ type: "transformRight" })
+              : dispatch({ type: "transformLeft" })
+          }
         >
           <div className="card__frontface">
             <img
@@ -148,7 +149,11 @@ const Projects = () => {
           style={{
             transform: `rotateY(${state.rightRotation}deg) translateX(${state.rightPosition}px)`,
           }}
-          onClick={() => dispatch({ type: "transformRight" })}
+          onClick={() =>
+            state.isTransformed
+              ? dispatch({ type: "transformLeft" })
+              : dispatch({ type: "transformRight" })
+          }
         >
           <div className="card__frontface">
             <div className="description__content">

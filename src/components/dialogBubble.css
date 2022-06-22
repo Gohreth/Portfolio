@@ -1,5 +1,4 @@
 .dialog {
-  background-color: burlywood;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -7,6 +6,7 @@
   position: relative;
   --offset: -80px;
   --popDuration: 2s;
+  color: var(--primary-clr);
 }
 
 .bubble-one {
@@ -14,7 +14,7 @@
   border: 4px solid rgba(0, 0, 0, 0.75);
   width: 25px;
   height: 25px;
-  background-color: white;
+  background-color: var(--secondary-clr);
   position: absolute;
   top: calc(0px + var(--offset));
   transform: scale(0);
@@ -28,7 +28,7 @@
   height: 40px;
   position: absolute;
   top: calc(13px + var(--offset));
-  background-color: white;
+  background-color: var(--secondary-clr);
   transform: scale(0);
   animation: popAppear var(--popDuration) ease-in-out forwards 0.25s;
 }
@@ -39,7 +39,7 @@
   padding: 1rem;
   position: absolute;
   top: calc(40px + var(--offset));
-  background-color: white;
+  background-color: var(--secondary-clr);
   max-height: 300px;
   overflow-y: scroll;
   transform: scale(0);
