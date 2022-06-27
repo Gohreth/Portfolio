@@ -17,7 +17,7 @@ const ScrollContainer = ({ children }) => {
     };
   }, []);
   return (
-    <div className="container" ref={containerRef}>
+    <div className="snap-y-container" ref={containerRef}>
       {children}
     </div>
   );

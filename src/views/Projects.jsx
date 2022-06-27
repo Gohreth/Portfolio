@@ -1,4 +1,6 @@
 import { useEffect, useReducer, useRef } from "react";
+import { resizeWithDelay } from "../helpers/resizeWindowUpdate";
+import useWindowDimensions from "../helpers/useWindowDimensions";
 import AnimatedCanvas from "./AnimatedCanvas";
 
 import "./projects.css";
@@ -20,7 +22,6 @@ const flipReducer = (state, action) => {
       return { ...state, distanceBetween: action.payload };
     case "transformLeft":
       if (!state.isTransformed) {
-        //-180 +621
         return {
           ...state,
           id: state.id - 1 < 0 ? PROJECTS.length - 1 : state.id - 1,
@@ -43,7 +44,6 @@ const flipReducer = (state, action) => {
       }
     case "transformRight":
       if (!state.isTransformed) {
-        //-180 +621
         return {
           ...state,
           id: state.id + 1 >= PROJECTS.length ? 0 : state.id + 1,
@@ -89,6 +89,7 @@ const PROJECTS = [
 const Projects = () => {
   const leftCardFlipRef = useRef(null);
   const rightCardFlipRef = useRef(null);
+  const { width, height } = useWindowDimensions();
   const [state, dispatch] = useReducer(flipReducer, INITIAL_STATE);
 
   useEffect(() => {
@@ -97,12 +98,34 @@ const Projects = () => {
 
     dispatch({
       type: "distance",
-      payload: 842, //TO-DO: Fix hardcoded value
+      payload: rightCardFlipRef.current.offsetLeft, //TO-DO: Fix hardcoded value
     });
+
+    window.addEventListener("resize", () => {
+      resizeWithDelay(300, rightCardFlipRef.current.offsetLeft, dispatch);
+    });
+
+    return () => {
+      window.removeEventListener("resize", () => {
+        resizeWithDelay(300, rightCardFlipRef.current.offsetLeft, dispatch);
+      });
+    };
   }, []);
+
+  useEffect(() => {
+    if (rightCardFlipRef.current) {
+      console.log("cambop offsety");
+    }
+  }, [rightCardFlipRef.current]);
   return (
     <div className="projects" id="projects">
-      <div className="information container3d">
+      {width <= 767 && (
+        <img className="avatar-miniature" src="/images/avatar/projects.png" />
+      )}
+      <div
+        className="information container3d"
+        style={{ columnGap: width > 1060 ? "0" : "2rem" }}
+      >
         <div
           ref={leftCardFlipRef}
           className="flippable-card"
@@ -142,7 +165,10 @@ const Projects = () => {
             <div className="description__name--right">{PROJECTS[1].name}</div>
           </div>
         </div>
-        <img src="/images/avatar/projects.png" />
+        {width > 1060 && (
+          <img className="avatar-image" src="/images/avatar/projects.png" />
+        )}
+
         <div
           ref={rightCardFlipRef}
           className="flippable-card"

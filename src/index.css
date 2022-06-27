@@ -5,11 +5,17 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--primary-clr);
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+html {
+  font-size: clamp(0.5rem, 1vh + 1vw, 1rem);
 }
 
 :root {
@@ -35,4 +41,12 @@ code {
 .dark-theme {
   background-color: var(--primary-clr);
   color: var(--secondary-clr);
+}
+
+.dark-theme-icon {
+  fill: var(--secondary-clr);
+}
+
+.light-theme-icon {
+  fill: var(--primary-clr);
 }

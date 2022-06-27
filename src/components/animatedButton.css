@@ -3,10 +3,18 @@
   background-color: var(--secondary-clr);
   position: relative;
   border: 3px solid var(--primary-clr);
+  background-color: var(--secondary-clr);
+  color: var(--primary-clr);
+  padding: 1rem;
+  border: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 2rem;
+  cursor: pointer;
 }
 
 .button--animated::after {
-  content: "Go";
+  content: attr(btn-text);
   position: absolute;
   color: transparent;
   display: grid;
@@ -46,15 +54,4 @@
   54% {
     transform: rotate(-5deg);
   }
-}
-
-button {
-  background-color: var(--secondary-clr);
-  color: var(--primary-clr);
-  padding: 1rem;
-  border: none;
-  text-transform: uppercase;
-  font-weight: bold;
-  border-radius: 2rem;
-  cursor: pointer;
 }

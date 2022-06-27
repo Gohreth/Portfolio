@@ -1,8 +1,8 @@
 import "./animatedButton.css";
 
-const AnimatedButton = ({ children, onEvent }) => {
+const AnimatedButton = ({ children, btnText, onEvent }) => {
   return (
-    <button className="button--animated" onClick={onEvent}>
+    <button className="button--animated" btn-text={btnText} onClick={onEvent}>
       {children}
     </button>
   );

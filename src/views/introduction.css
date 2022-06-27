@@ -13,6 +13,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  scroll-snap-align: start;
 }
 
 .skills {
@@ -23,19 +24,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
+  scroll-snap-align: start;
   padding: 1rem var(--inline-padding);
 }
 
 .information {
   display: flex;
   justify-content: center;
-  align-items: stretch;
-}
-
-.information__avatar {
-  /**/
-  object-fit: contain;
+  align-items: center;
 }
 
 .information__container {
@@ -43,7 +39,7 @@
   flex-direction: column;
   padding-top: 4rem;
   padding-bottom: 6rem;
-  justify-content: space-between;
+  gap: 2rem;
   align-items: flex-start;
 }
 
@@ -57,4 +53,23 @@
   white-space: nowrap;
   display: block;
   text-align: left;
+}
+
+@media screen and (max-width: 767px) {
+  .information__text p {
+    text-align: center;
+  }
+
+  .information__container {
+    align-items: center;
+  }
+
+  .information__flag {
+    background: url(../../public/images/closeup-shot-realistic-flag-chile-with-interesting-textures.jpg);
+    background-clip: text;
+    background-size: cover;
+    -webkit-background-clip: text;
+    font-size: clamp(1rem, 10vh + 5vw, 10rem);
+    color: transparent;
+  }
 }

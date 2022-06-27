@@ -1,12 +1,13 @@
 import { useContext, useEffect, useRef } from "react";
 import { UIContext } from "../App";
 import AnimatedButton from "../components/AnimatedButton";
+import useWindowDimensions from "../helpers/useWindowDimensions";
 import { isInViewport } from "../helpers/viewportChecks";
 import "./contact.css";
 
 const Contact = () => {
   const contactRef = useRef(null);
-
+  const { width, height } = useWindowDimensions();
   //Checks if section is in viewport
   /* useEffect(() => {
     const i = setInterval(() => {
@@ -27,7 +28,10 @@ const Contact = () => {
   }, []);
   return (
     <div className="contact" id="contact" ref={contactRef}>
-      <div className="information" style={{ gap: "5rem" }}>
+      {width <= 767 && (
+        <img className="avatar-miniature" src="/images/avatar/contact.png" />
+      )}
+      <div className="information" style={{ gap: "2rem" }}>
         <form action="">
           <div className="input-group">
             <label htmlFor="mailName">Name</label>
@@ -44,9 +48,11 @@ const Contact = () => {
 
             <textarea name="mailMessage" id="mailMessage" rows="10"></textarea>
           </div>
-          <AnimatedButton>Contact me</AnimatedButton>
+          <AnimatedButton btnText={"Send"}>Contact me</AnimatedButton>
         </form>
-        <img src="/images/avatar/contact.png" />
+        {width > 767 && (
+          <img className="avatar-image" src="/images/avatar/contact.png" />
+        )}
       </div>
     </div>
   );

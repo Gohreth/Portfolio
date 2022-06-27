@@ -5,6 +5,7 @@ import DialogBubble from "../components/DialogBubble";
 import SkillGroup from "../components/SkillGroup";
 import Typewritter from "../components/Typewritter";
 import { checkWithDelay } from "../helpers/scrollCheck";
+import useWindowDimensions from "../helpers/useWindowDimensions";
 import AnimatedCanvas from "./AnimatedCanvas";
 import "./introduction.css";
 
@@ -110,7 +111,7 @@ const LEARNING = [
 const Introduction = () => {
   const scrollableXRef = useRef(null);
   const [isAnimating, setIsAnimating] = useState(false);
-
+  const { width, height } = useWindowDimensions();
   const [activeSkillRef, setActiveSkillRef] = useState(null);
 
   const [currentDescription, setCurrentDescription] = useState(null);
@@ -160,22 +161,29 @@ const Introduction = () => {
   return (
     <div
       ref={scrollableXRef}
-      className={`introduction ${settings.theme}-theme`}
+      className={`introduction snap-x-container ${settings.theme}-theme`}
       id="about"
     >
       <div className="about">
+        {width <= 767 && (
+          <img className="avatar-miniature" src="/images/avatar/about.png" />
+        )}
         <div className="information">
-          <div className="information__avatar">
-            <img src="/images/avatar/about.png" />
-          </div>
+          {width > 767 && (
+            <img className="avatar-image" src="/images/avatar/about.png" />
+          )}
+
           <div className="information__container">
             <div className="information__text">
               <p>Hi!</p>
               <p>I'm Sebastian</p>
               <Typewritter roles={ROLES} />
-              <p>From Santiago, Chile</p>
+              <p>From Santiago{width > 767 && <span>, Chile</span>}</p>
+              {width <= 767 && <p className="information__flag">Chile</p>}
             </div>
-            <AnimatedButton onEvent={handleScroll}>See skills</AnimatedButton>
+            <AnimatedButton onEvent={handleScroll} btnText={"Go"}>
+              See skills
+            </AnimatedButton>
           </div>
         </div>
         <AnimatedCanvas
@@ -192,7 +200,7 @@ const Introduction = () => {
             onSelectionToggle={handleSelectionToggle}
           />
           <div className="dialog-container">
-            <img src="/images/avatar/skills.png" />
+            <img className="avatar-image" src="/images/avatar/skills.png" />
             {currentDescription && (
               <DialogBubble description={currentDescription} />
             )}

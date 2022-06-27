@@ -1,6 +1,35 @@
-.container {
+.snap-y-container {
   scroll-snap-type: y mandatory;
   overflow: scroll;
   max-height: 100vh;
   scroll-behavior: smooth;
+}
+
+.snap-x-container {
+  scroll-snap-type: x mandatory;
+  overflow: scroll;
+  max-width: 100vw;
+  scroll-behavior: smooth;
+}
+
+.snap-x-container::-webkit-scrollbar,
+.snap-y-container::-webkit-scrollbar {
+  display: none;
+}
+
+.avatar-image {
+  aspect-ratio: 1;
+  width: clamp(210px, 20vh + 20vw, 420px);
+  object-fit: contain;
+}
+
+.avatar-miniature {
+  aspect-ratio: 1;
+  width: 5rem;
+  object-fit: contain;
+  position: absolute;
+  top: 0.5rem;
+  left: 50%;
+  transform: translate(-50%, 0);
+  opacity: 0.5;
 }
