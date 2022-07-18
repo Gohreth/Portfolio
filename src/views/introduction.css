@@ -17,7 +17,6 @@
 }
 
 .skills {
-  --inline-padding: 5rem;
   position: relative;
   flex: 0 0 100vw;
   height: 100vh;
@@ -25,7 +24,6 @@
   justify-content: center;
   align-items: center;
   scroll-snap-align: start;
-  padding: 1rem var(--inline-padding);
 }
 
 .information {

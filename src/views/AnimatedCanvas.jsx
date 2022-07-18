@@ -103,7 +103,6 @@ const AnimatedCanvas = ({ animationTrigger, onAnimationEnd }) => {
   }, []);
 
   useEffect(() => {
-    //console.log(ctx);
     const animation = async () => {
       await standUpAnimation(
         ctx,
@@ -123,11 +122,13 @@ const AnimatedCanvas = ({ animationTrigger, onAnimationEnd }) => {
         heightOffset
       );
     };
-
+    let timeoutId;
     if (animationTrigger) {
       animation();
-      onAnimationEnd();
+      timeoutId = setTimeout(() => onAnimationEnd(), 5000);
     }
+
+    return () => clearTimeout(timeoutId);
   }, [animationTrigger]);
 
   return <canvas ref={canvasRef}></canvas>;

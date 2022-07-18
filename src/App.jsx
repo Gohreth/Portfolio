@@ -7,6 +7,7 @@ import {
   useState,
 } from "react";
 import "./App.css";
+import AvatarSprite from "./components/avatarSprite";
 import { checkWithDelay } from "./helpers/scrollCheck";
 import Contact from "./views/Contact";
 import Header from "./views/Header";

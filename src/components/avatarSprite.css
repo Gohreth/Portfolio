@@ -1,0 +1,9 @@
+.avatar-canvas {
+  position: absolute;
+  width: calc(24px * 5);
+  height: calc(24px * 5);
+  image-rendering: pixelated;
+  left: 0;
+  bottom: 0;
+  background-color: red;
+}

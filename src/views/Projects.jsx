@@ -1,7 +1,6 @@
 import { useEffect, useReducer, useRef } from "react";
 import { resizeWithDelay } from "../helpers/resizeWindowUpdate";
 import useWindowDimensions from "../helpers/useWindowDimensions";
-import AnimatedCanvas from "./AnimatedCanvas";
 
 import "./projects.css";
 
@@ -82,7 +81,7 @@ const PROJECTS = [
     name: "Personal Portfolio",
     status: "Unfinished",
     description:
-      "Portfolio to showcase myselft, my skills and personal projects, it will be updated everytime I learn another technology or skill and when I start another personal project.",
+      "Portfolio to showcase my skills and personal projects, it will be updated everytime I learn another technology or skill and when I start another personal project.",
   },
 ];
 
@@ -123,8 +122,8 @@ const Projects = () => {
         <img className="avatar-miniature" src="/images/avatar/projects.png" />
       )}
       <div
-        className="information container3d"
-        style={{ columnGap: width > 1060 ? "0" : "2rem" }}
+        className="information__projects container3d"
+        style={{ gap: width > 1060 ? "0" : "2rem" }}
       >
         <div
           ref={leftCardFlipRef}

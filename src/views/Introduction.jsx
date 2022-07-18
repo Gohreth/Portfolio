@@ -130,6 +130,7 @@ const Introduction = () => {
 
   const handleScroll = async () => {
     setIsAnimating(true);
+    scrollableXRef.current.classList.toggle("snap-x-container");
     const characterSpawnTime = 1000; //ms
     //Character spawning in
     await new Promise((r) => setTimeout(r, characterSpawnTime));
@@ -156,6 +157,11 @@ const Introduction = () => {
       );
     };
   }, []);
+
+  const handleAnimationEnd = () => {
+    setIsAnimating(false);
+    scrollableXRef.current.classList.toggle("snap-x-container");
+  };
 
   const { settings } = useContext(UIContext);
   return (
@@ -188,11 +194,14 @@ const Introduction = () => {
         </div>
         <AnimatedCanvas
           animationTrigger={isAnimating}
-          onAnimationEnd={() => setIsAnimating(false)}
+          onAnimationEnd={handleAnimationEnd}
         />
       </div>
       <div className="skills">
-        <div className="information">
+        {width <= 767 && (
+          <img className="avatar-miniature" src="/images/avatar/skills.png" />
+        )}
+        <div className="information__skills">
           {/* Add context to fix prop drilling and to set information in speech bubble component */}
           <SkillGroup
             title={"SKILLS"}
@@ -200,7 +209,9 @@ const Introduction = () => {
             onSelectionToggle={handleSelectionToggle}
           />
           <div className="dialog-container">
-            <img className="avatar-image" src="/images/avatar/skills.png" />
+            {width >= 1150 && (
+              <img className="avatar-image" src="/images/avatar/skills.png" />
+            )}
             {currentDescription && (
               <DialogBubble description={currentDescription} />
             )}

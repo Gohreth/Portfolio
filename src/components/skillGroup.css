@@ -1,20 +1,61 @@
+.information__skills {
+  display: flex;
+  width: 100vw;
+  padding-inline: 5rem;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4rem;
+}
+
 .container__skills {
   display: flex;
-  flex: 0 0 25vw;
   flex-direction: column;
+  width: calc(100vw - 10rem);
+  gap: 2rem;
   align-items: center;
-  row-gap: 2rem;
 }
 
 .skills__title {
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: bold;
-  justify-self: flex-start;
 }
 
 .skills__list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(32px, 1fr));
+  width: 100%;
+  height: 100%;
   gap: 2rem;
   flex-wrap: wrap;
+}
+
+@media screen and (min-width: 1150px) {
+  .information__skills {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .container__skills {
+    display: flex;
+    flex-direction: column;
+    width: 25vw;
+    align-items: center;
+    row-gap: 2rem;
+  }
+
+  .skills__title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    justify-self: flex-start;
+    transform: rotateZ(0);
+  }
+
+  .skills__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
 }
